@@ -95,8 +95,8 @@ public class Gmail extends Email {
 
         for(int i=0;i<inbox.size();i++)
         {
-            if(inbox.get(i).date.equals(start) || inbox.get(i).date.equals(end) || inbox.get(i).date.after(start)
-                                                                                ||  inbox.get(i).date.before(end)) {
+            if(inbox.get(i).date.equals(start) || inbox.get(i).date.equals(end) || (inbox.get(i).date.after(start)
+                                                                                && inbox.get(i).date.before(end))) {
                 count++;
             }
         }
