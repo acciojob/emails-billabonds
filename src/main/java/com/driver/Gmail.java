@@ -46,7 +46,7 @@ public class Gmail extends Email {
         if(inbox.size() == inboxCapacity)
         {
             Mail oldMail = inbox.get(0);
-            inbox.remove(oldMail);
+            inbox.remove(0);
             trash.add(oldMail);
         }
     }
