@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultimap;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 class Mail{
         Date date;
@@ -33,8 +32,8 @@ public class Gmail extends Email {
 
         super(emailId);
         this.inboxCapacity = inboxCapacity;
-        inbox = new ArrayList<>();
-        trash = new ArrayList<>();
+        this.inbox = new ArrayList<>();
+        this.trash = new ArrayList<>();
     }
 
     public void receiveMail(Date date, String sender, String message){                                  // 1st API
@@ -49,6 +48,8 @@ public class Gmail extends Email {
             inbox.remove(0);
             trash.add(oldMail);
         }
+        Mail newMail = new Mail(date,sender,message);
+        inbox.add(newMail);
     }
 
     public void deleteMail(String message){                                                             // 2nd API
