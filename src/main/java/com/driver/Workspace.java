@@ -8,22 +8,13 @@ import java.util.Collections;
 
 public class Workspace extends Gmail{
 
-//    class Pair{
-//        int startTime;
-//        int endTime;
-//        Pair(int startTime,int endTime){
-//            this.startTime = startTime;
-//            this.endTime = endTime;
-//        }
-//    }
-
     private ArrayList<Meeting> calendar; // Stores all the meetings
 
     public Workspace(String emailId) {
         // The inboxCapacity is equal to the maximum value an integer can store.
 
         super(emailId,Integer.MAX_VALUE);
-        calendar = new ArrayList<>();
+        this.calendar = new ArrayList<>();
     }
 
     public void addMeeting(Meeting meeting){
@@ -38,8 +29,8 @@ public class Workspace extends Gmail{
         // Example: If a meeting ends at 10:00 am, you cannot attend another meeting starting at 10:00 am
 
         Collections.sort(calendar,(o1,o2)->{
-            return o1.getStartTime()==o2.getStartTime()? o1.getEndTime().compareTo(o2.getEndTime()) :
-                                                         o1.getStartTime().compareTo(o2.getStartTime());
+            return o1.getStartTime()==o2.getStartTime()? o1.getStartTime().compareTo(o2.getStartTime()) :
+                                                         o1.getEndTime().compareTo(o2.getEndTime());
         });
 
         LocalTime limit = calendar.get(0).getEndTime();
